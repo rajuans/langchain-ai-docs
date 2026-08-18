@@ -25986,8 +25986,8 @@
             "schema": {
               "type": "integer",
               "default": 20,
-              "maximum": 100,
               "minimum": 1,
+              "maximum": 100,
               "title": "Limit"
             }
           },
@@ -27348,11 +27348,11 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "default": "forward",
               "enum": [
                 "forward",
                 "backward"
               ],
+              "default": "forward",
               "title": "Direction"
             }
           }
@@ -30642,7 +30642,7 @@
             "Bearer Auth": []
           }
         ],
-        "description": "**Beta:** This endpoint is in active development and may change without notice.\n\nReturns issues for the authenticated tenant, optionally filtered\nby session, status, severity, tag, or last modified time.",
+        "description": "**Beta:** This endpoint is in active development and may change without notice.\n\nReturns issues for the authenticated tenant, optionally filtered\nby session, status, severity, tag, linked trace, or last modified time.",
         "tags": [
           "issues"
         ],
@@ -30704,6 +30704,16 @@
             "schema": {
               "type": "string",
               "title": "Tag"
+            }
+          },
+          {
+            "description": "Return only issues with a linked run in this trace",
+            "name": "trace_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Trace Id"
             }
           },
           {
@@ -39647,8 +39657,8 @@
             "schema": {
               "type": "integer",
               "default": 20,
-              "maximum": 100,
               "minimum": 1,
+              "maximum": 100,
               "title": "Page Size"
             }
           },
@@ -41717,6 +41727,16 @@
               }
             }
           },
+          "422": {
+            "description": "Customer AWS resource conflict or quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/data_planes.CreateErrorResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -41912,8 +41932,8 @@
             "schema": {
               "type": "integer",
               "default": 50,
-              "maximum": 100,
               "minimum": 1,
+              "maximum": 100,
               "title": "Limit"
             }
           },
@@ -45122,6 +45142,7 @@
           "update_workspace_member",
           "delete_workspace_pending_member",
           "update_workspace_pending_member",
+          "read_workspace_encrypted_secrets",
           "update_workspace_secrets",
           "delete_workspace_secret",
           "update_org_secrets",
@@ -76837,6 +76858,36 @@
             "type": "string"
           },
           "vpc_cidr": {
+            "type": "string"
+          }
+        }
+      },
+      "data_planes.CreateErrorResponse": {
+        "type": "object",
+        "required": [
+          "code",
+          "detail",
+          "status",
+          "title",
+          "type"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         }
