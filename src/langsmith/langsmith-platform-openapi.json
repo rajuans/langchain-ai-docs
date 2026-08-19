@@ -4078,6 +4078,71 @@
               "title": "Operations"
             },
             "description": "Filter by operation names. If omitted, all operations are returned."
+          },
+          {
+            "name": "actor_ls_user_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by human actor (ls_user_id).",
+              "title": "Actor Ls User Ids"
+            },
+            "description": "Filter by human actor (ls_user_id)."
+          },
+          {
+            "name": "actor_api_key_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by API key actor (api_key_id).",
+              "title": "Actor Api Key Ids"
+            },
+            "description": "Filter by API key actor (api_key_id)."
+          },
+          {
+            "name": "resource_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by resource ID. Matches if any resource ID is present on the log.",
+              "title": "Resource Ids"
+            },
+            "description": "Filter by resource ID. Matches if any resource ID is present on the log."
           }
         ],
         "responses": {
@@ -8890,8 +8955,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -25974,8 +26039,8 @@
             "name": "include_stats",
             "in": "query",
             "schema": {
-              "type": "boolean",
               "default": true,
+              "type": "boolean",
               "title": "Include Stats"
             }
           },
@@ -25984,10 +26049,10 @@
             "name": "limit",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "default": 20,
-              "maximum": 100,
               "minimum": 1,
+              "default": 20,
+              "type": "integer",
+              "maximum": 100,
               "title": "Limit"
             }
           },
@@ -25996,9 +26061,9 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "default": 0,
               "minimum": 0,
+              "default": 0,
+              "type": "integer",
               "title": "Offset"
             }
           },
@@ -26208,8 +26273,8 @@
             "name": "get_examples",
             "in": "query",
             "schema": {
-              "type": "boolean",
               "default": false,
+              "type": "boolean",
               "title": "Get Examples"
             }
           },
@@ -26227,8 +26292,8 @@
             "name": "include_model",
             "in": "query",
             "schema": {
-              "type": "boolean",
               "default": false,
+              "type": "boolean",
               "title": "Include Model"
             }
           },
@@ -26236,8 +26301,8 @@
             "name": "is_view",
             "in": "query",
             "schema": {
-              "type": "boolean",
               "default": false,
+              "type": "boolean",
               "title": "Is View"
             }
           }
@@ -27301,12 +27366,12 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "enum": [
                 "needs_my_review",
                 "needs_others_review",
                 "archived"
               ],
+              "type": "string",
               "title": "Status"
             }
           },
@@ -27315,8 +27380,8 @@
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 20,
+              "type": "integer",
               "title": "Page Size"
             }
           },
@@ -27334,11 +27399,11 @@
             "name": "item_type",
             "in": "query",
             "schema": {
-              "type": "string",
               "enum": [
                 "RUN",
                 "THREAD"
               ],
+              "type": "string",
               "title": "Item Type"
             }
           },
@@ -27347,12 +27412,12 @@
             "name": "direction",
             "in": "query",
             "schema": {
-              "type": "string",
-              "default": "forward",
               "enum": [
                 "forward",
                 "backward"
               ],
+              "default": "forward",
+              "type": "string",
               "title": "Direction"
             }
           }
@@ -28210,8 +28275,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -28329,8 +28394,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -28536,8 +28601,8 @@
             "name": "limit",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 100,
+              "type": "integer",
               "title": "Limit"
             }
           },
@@ -28546,8 +28611,8 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 0,
+              "type": "integer",
               "title": "Offset"
             }
           }
@@ -29959,8 +30024,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -30049,8 +30114,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -30132,8 +30197,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -30302,10 +30367,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30315,10 +30377,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30328,10 +30387,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30341,10 +30397,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30354,10 +30407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30406,11 +30456,11 @@
             "name": "repo_type",
             "in": "query",
             "schema": {
-              "type": "string",
               "enum": [
                 "agent",
                 "skill"
               ],
+              "type": "string",
               "title": "Repo Type"
             }
           }
@@ -30424,10 +30474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30437,10 +30484,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30450,10 +30494,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30463,10 +30504,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30476,10 +30514,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30542,10 +30577,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30555,10 +30587,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30568,10 +30597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30581,10 +30607,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30594,10 +30617,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30607,10 +30627,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
+                  "$ref": "#/components/schemas/directories.errorResponse"
                 }
               }
             }
@@ -30642,7 +30659,7 @@
             "Bearer Auth": []
           }
         ],
-        "description": "**Beta:** This endpoint is in active development and may change without notice.\n\nReturns issues for the authenticated tenant, optionally filtered\nby session, status, severity, tag, or last modified time.",
+        "description": "**Beta:** This endpoint is in active development and may change without notice.\n\nReturns issues for the authenticated tenant, optionally filtered\nby session, status, severity, tag, linked trace, or last modified time.",
         "tags": [
           "issues"
         ],
@@ -30671,7 +30688,6 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "type": "string",
               "enum": [
                 "open",
                 "fixing",
@@ -30679,6 +30695,7 @@
                 "completed",
                 "ignored"
               ],
+              "type": "string",
               "title": "Status"
             }
           },
@@ -30687,13 +30704,13 @@
             "name": "severity",
             "in": "query",
             "schema": {
-              "type": "integer",
               "enum": [
                 0,
                 1,
                 2,
                 3
               ],
+              "type": "integer",
               "title": "Severity"
             }
           },
@@ -30704,6 +30721,16 @@
             "schema": {
               "type": "string",
               "title": "Tag"
+            }
+          },
+          {
+            "description": "Return only issues with a linked run in this trace",
+            "name": "trace_id",
+            "in": "query",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "title": "Trace Id"
             }
           },
           {
@@ -30720,12 +30747,12 @@
             "name": "sort_by",
             "in": "query",
             "schema": {
-              "type": "string",
               "enum": [
                 "created_at",
                 "updated_at",
                 "severity"
               ],
+              "type": "string",
               "title": "Sort By"
             }
           },
@@ -35594,8 +35621,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -35604,8 +35631,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -35614,8 +35641,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "format": "date-time",
+              "type": "string",
               "title": "Start Time"
             }
           },
@@ -35740,8 +35767,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -36002,8 +36029,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -36012,8 +36039,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "format": "uuid",
+              "type": "string",
               "title": "Project Id"
             }
           },
@@ -36083,8 +36110,8 @@
             "name": "start_time",
             "in": "query",
             "schema": {
-              "type": "string",
               "format": "date-time",
+              "type": "string",
               "title": "Start Time"
             }
           }
@@ -36219,8 +36246,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -36333,8 +36360,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -36447,8 +36474,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -36547,8 +36574,8 @@
             "name": "limit",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 50,
+              "type": "integer",
               "title": "Limit"
             }
           },
@@ -36557,8 +36584,8 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 0,
+              "type": "integer",
               "title": "Offset"
             }
           },
@@ -36608,8 +36635,8 @@
             "name": "sort_by",
             "in": "query",
             "schema": {
-              "type": "string",
               "default": "created_at",
+              "type": "string",
               "title": "Sort By"
             }
           },
@@ -36618,8 +36645,8 @@
             "name": "sort_direction",
             "in": "query",
             "schema": {
-              "type": "string",
               "default": "desc",
+              "type": "string",
               "title": "Sort Direction"
             }
           }
@@ -37062,6 +37089,110 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/sandboxes.UpdateSandboxPayload"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/sandboxes/boxes/{name}/download-url": {
+      "post": {
+        "security": [
+          {
+            "API Key": []
+          },
+          {
+            "Tenant ID": []
+          },
+          {
+            "Bearer Auth": []
+          }
+        ],
+        "description": "Generate a tokenized link that downloads a single file from a sandbox with no further authentication. This mints a token rather than creating an addressable resource, so it returns 200 with no Location header. The token pins the sandbox, the file path, and the response content type and disposition, so a link cannot be repointed at another file. Links never expire unless expires_in_seconds is set. The link is served from the sandbox service domain, not the API host.",
+        "tags": [
+          "sandboxes"
+        ],
+        "summary": "Generate a sandbox file download link",
+        "parameters": [
+          {
+            "description": "Sandbox ID or name",
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.DownloadURLResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-public": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sandboxes.DownloadURLPayload"
               }
             }
           }
@@ -37943,8 +38074,8 @@
             "name": "limit",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 50,
+              "type": "integer",
               "title": "Limit"
             }
           },
@@ -37953,8 +38084,8 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
               "default": 0,
+              "type": "integer",
               "title": "Offset"
             }
           },
@@ -38004,8 +38135,8 @@
             "name": "sort_by",
             "in": "query",
             "schema": {
-              "type": "string",
               "default": "created_at",
+              "type": "string",
               "title": "Sort By"
             }
           },
@@ -38014,8 +38145,8 @@
             "name": "sort_direction",
             "in": "query",
             "schema": {
-              "type": "string",
               "default": "desc",
+              "type": "string",
               "title": "Sort Direction"
             }
           }
@@ -38440,7 +38571,7 @@
             "Bearer Auth": []
           }
         ],
-        "description": "Download file contents from a sandbox filesystem path.",
+        "description": "Download file contents from a sandbox filesystem path. Supports HTTP range requests: send a Range header (for example `bytes=0-1023`) to receive a 206 with only that byte range. Every response carries an ETag; send it back as If-Range to resume safely (a changed file returns 200 with the whole file instead of mismatched bytes) or as If-None-Match to get a 304 when the file is unchanged. HEAD returns the same headers, including the file's size in Content-Length, without the body.",
         "tags": [
           "sandboxes"
         ],
@@ -38464,11 +38595,38 @@
               "type": "string",
               "title": "Path"
             }
+          },
+          {
+            "description": "Byte range to return, e.g. bytes=0-1023",
+            "name": "Range",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "File content"
+            "description": "File content",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": "Partial file content",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -38500,12 +38658,124 @@
               }
             }
           },
-          "500": {
-            "description": "Internal Server Error",
+          "416": {
+            "description": "Requested range not satisfiable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-public": true
+      },
+      "head": {
+        "security": [
+          {
+            "API Key": []
+          },
+          {
+            "Tenant ID": []
+          },
+          {
+            "Bearer Auth": []
+          }
+        ],
+        "description": "Download file contents from a sandbox filesystem path. Supports HTTP range requests: send a Range header (for example `bytes=0-1023`) to receive a 206 with only that byte range. Every response carries an ETag; send it back as If-Range to resume safely (a changed file returns 200 with the whole file instead of mismatched bytes) or as If-None-Match to get a 304 when the file is unchanged. HEAD returns the same headers, including the file's size in Content-Length, without the body.",
+        "tags": [
+          "sandboxes"
+        ],
+        "summary": "Download a sandbox file",
+        "parameters": [
+          {
+            "description": "Sandbox ID or name",
+            "name": "sandbox_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "File path to download",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Path"
+            }
+          },
+          {
+            "description": "Byte range to return, e.g. bytes=0-1023",
+            "name": "Range",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File content",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": "Partial file content",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sandboxes.ErrorResponse"
+                }
+              }
+            }
+          },
+          "416": {
+            "description": "Requested range not satisfiable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -39493,8 +39763,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "format": "uuid",
+              "type": "string",
               "title": "Session Id"
             }
           }
@@ -39645,10 +39915,10 @@
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "default": 20,
-              "maximum": 100,
               "minimum": 1,
+              "default": 20,
+              "type": "integer",
+              "maximum": 100,
               "title": "Page Size"
             }
           },
@@ -39658,8 +39928,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "format": "uuid",
+              "type": "string",
               "title": "Project Id"
             }
           },
@@ -39967,8 +40237,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -39985,8 +40255,8 @@
             "name": "max_start_time",
             "in": "query",
             "schema": {
-              "type": "string",
               "format": "date-time",
+              "type": "string",
               "title": "Max Start Time"
             }
           },
@@ -39995,8 +40265,8 @@
             "name": "min_start_time",
             "in": "query",
             "schema": {
-              "type": "string",
               "format": "date-time",
+              "type": "string",
               "title": "Min Start Time"
             }
           },
@@ -40006,8 +40276,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string",
               "format": "uuid",
+              "type": "string",
               "title": "Project Id"
             }
           },
@@ -40283,8 +40553,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -40382,8 +40652,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -40516,8 +40786,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -40527,8 +40797,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -40623,8 +40893,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -40634,8 +40904,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -40723,8 +40993,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           },
           {
@@ -40734,8 +41004,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -41717,6 +41987,16 @@
               }
             }
           },
+          "422": {
+            "description": "Customer AWS resource conflict or quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/data_planes.CreateErrorResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -41910,10 +42190,10 @@
             "name": "limit",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "default": 50,
-              "maximum": 100,
               "minimum": 1,
+              "default": 50,
+              "type": "integer",
+              "maximum": 100,
               "title": "Limit"
             }
           },
@@ -41921,9 +42201,9 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "default": 0,
               "minimum": 0,
+              "default": 0,
+              "type": "integer",
               "title": "Offset"
             }
           }
@@ -45122,6 +45402,7 @@
           "update_workspace_member",
           "delete_workspace_pending_member",
           "update_workspace_pending_member",
+          "read_workspace_encrypted_secrets",
           "update_workspace_secrets",
           "delete_workspace_secret",
           "update_org_secrets",
@@ -45291,6 +45572,7 @@
           "start_sandbox_claim",
           "stop_sandbox_claim",
           "generate_sandbox_service_url",
+          "generate_sandbox_download_url",
           "capture_sandbox_snapshot",
           "list_sandbox_snapshots",
           "get_sandbox_snapshot",
@@ -66732,6 +67014,20 @@
             ],
             "title": "Code Evaluators"
           },
+          "trajectory_evaluators": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/EvaluatorTopLevel"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trajectory Evaluators"
+          },
           "alerts": {
             "anyOf": [
               {
@@ -76841,6 +77137,36 @@
           }
         }
       },
+      "data_planes.CreateErrorResponse": {
+        "type": "object",
+        "required": [
+          "code",
+          "detail",
+          "status",
+          "title",
+          "type"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
       "data_planes.ErrorResponse": {
         "type": "object",
         "properties": {
@@ -77144,6 +77470,41 @@
           "files": {
             "type": "object",
             "additionalProperties": {}
+          }
+        }
+      },
+      "directories.errorResponse": {
+        "type": "object",
+        "required": [
+          "detail",
+          "status",
+          "title",
+          "type"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "conflicting_path": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
           }
         }
       },
@@ -80766,6 +81127,53 @@
           },
           "tag": {
             "description": "mutable Docker-style tag; defaults to \"latest\"",
+            "type": "string"
+          }
+        }
+      },
+      "sandboxes.DownloadURLPayload": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "content_disposition": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "expires_in_seconds": {
+            "description": "ExpiresInSeconds is optional; a link with no expiry never expires.",
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "sandboxes.DownloadURLResponse": {
+        "type": "object",
+        "required": [
+          "download_url",
+          "token"
+        ],
+        "properties": {
+          "download_url": {
+            "type": "string"
+          },
+          "expires_at": {
+            "description": "ExpiresAt is null for a link that never expires.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "token": {
             "type": "string"
           }
         }
